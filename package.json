@@ -1,0 +1,22 @@
+{
+  "name": "currie",
+  "description": "a simple proxy/curry function",
+  "homepage": "",
+  "author": "Greg Allen <@jgaui> (http://jga.me)",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgallen23/currie.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "main": "lib/currie",
+  "scripts":{
+    "test": "mocha"
+  },
+  "bin": {
+  }
+}
