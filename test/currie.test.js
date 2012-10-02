@@ -27,9 +27,34 @@ suite('currie', function() {
 
       setTimeout(currie(this.method, this, 123), 10);
     }
+
     Test.prototype.method = function(arg) {
       assert.equal(this instanceof Test, true);
       assert.equal(arg, 123);
+      done();
+    }
+
+    var test = new Test();
+    
+  });
+
+  test('pass arguments from callback', function(done) {
+
+    var async = function(fn) {
+      setTimeout(function() {
+        fn(456);
+      }, 10);
+    }
+
+    var Test = function() {
+
+      async(currie(this.method, this, 123));
+    }
+
+    Test.prototype.method = function(arg1, arg2) {
+      assert.equal(this instanceof Test, true);
+      assert.equal(arg1, 123);
+      assert.equal(arg2, 456);
       done();
     }
 
