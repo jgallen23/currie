@@ -61,6 +61,53 @@ suite('currie', function() {
     var test = new Test();
     
   });
+
+  test('pass arguments from callback', function(done) {
+
+    var async = function(fn) {
+      setTimeout(function() {
+        fn(456);
+      }, 10);
+    }
+
+    var Test = function() {
+
+      async(currie(this.method, this));
+    }
+
+    Test.prototype.method = function(arg1, arg2) {
+      assert.equal(this instanceof Test, true);
+      assert.equal(arg1, 456);
+      done();
+    }
+
+    var test = new Test();
+    
+  });
+
+  test('calling more than once', function() {
+
+    var scope = {
+      test: true
+    }
+    var first = true;
+    var async = function(arg1, arg2) {
+      assert.equal(arguments.length, 2);
+      assert.equal(this.test, true);
+      if (first) {
+        assert.equal(arg1, 123);
+        assert.equal(arg2, 456);
+        first = false;
+      } else {
+        assert.equal(arg1, 123);
+        assert.equal(arg2, 789);
+      }
+    }
+    var fn = currie(async, scope, 123);
+    fn(456);
+    fn(789);
+    
+  });
   
 });
 
