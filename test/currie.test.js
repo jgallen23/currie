@@ -15,7 +15,7 @@ suite('currie', function() {
       assert.equal(arg4, 4);
 
       done();
-    }
+    };
 
     setTimeout(currie(test, null, 1, 2, 3, 4), 10);
     assert.equal(check, false);
@@ -26,13 +26,13 @@ suite('currie', function() {
     var Test = function() {
 
       setTimeout(currie(this.method, this, 123), 10);
-    }
+    };
 
     Test.prototype.method = function(arg) {
       assert.equal(this instanceof Test, true);
       assert.equal(arg, 123);
       done();
-    }
+    };
 
     var test = new Test();
     
@@ -44,19 +44,19 @@ suite('currie', function() {
       setTimeout(function() {
         fn(456);
       }, 10);
-    }
+    };
 
     var Test = function() {
 
       async(currie(this.method, this, 123));
-    }
+    };
 
     Test.prototype.method = function(arg1, arg2) {
       assert.equal(this instanceof Test, true);
       assert.equal(arg1, 123);
       assert.equal(arg2, 456);
       done();
-    }
+    };
 
     var test = new Test();
     
@@ -68,18 +68,18 @@ suite('currie', function() {
       setTimeout(function() {
         fn(456);
       }, 10);
-    }
+    };
 
     var Test = function() {
 
       async(currie(this.method, this));
-    }
+    };
 
     Test.prototype.method = function(arg1, arg2) {
       assert.equal(this instanceof Test, true);
       assert.equal(arg1, 456);
       done();
-    }
+    };
 
     var test = new Test();
     
@@ -89,7 +89,7 @@ suite('currie', function() {
 
     var scope = {
       test: true
-    }
+    };
     var first = true;
     var async = function(arg1, arg2) {
       assert.equal(arguments.length, 2);
@@ -102,7 +102,7 @@ suite('currie', function() {
         assert.equal(arg1, 123);
         assert.equal(arg2, 789);
       }
-    }
+    };
     var fn = currie(async, scope, 123);
     fn(456);
     fn(789);
