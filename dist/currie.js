@@ -1,6 +1,6 @@
 /*!
  * currie - a simple proxy/curry function
- * v0.0.3
+ * v0.0.4
  * https://github.com/jgallen23/currie
  * copyright JGA 2012
  * MIT License
