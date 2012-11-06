@@ -4,6 +4,8 @@
   "homepage": "https://github.com/jgallen23/currie",
   "author": "Greg Allen <@jgaui> (http://jga.me)",
   "version": "0.0.3",
+  "copyright": "JGA",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/jgallen23/currie.git"
@@ -11,7 +13,9 @@
   "dependencies": {
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "~1.6.0",
+    "grunt": "~0.3.17",
+    "grunt-simple-mocha": "~0.2.0"
   },
   "main": "lib/currie",
   "scripts":{
