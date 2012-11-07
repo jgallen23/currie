@@ -17,7 +17,7 @@
     "grunt": "~0.3.17",
     "grunt-simple-mocha": "~0.2.0"
   },
-  "main": "lib/currie",
+  "main": "lib/currie.js",
   "scripts":{
     "test": "mocha"
   },
